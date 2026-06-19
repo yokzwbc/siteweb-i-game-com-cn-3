@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yokzwbc.github.io/siteweb-i-game-com-cn-3/sitemap.xml
