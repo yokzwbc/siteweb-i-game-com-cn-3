@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>再访 · 雷火电竞</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f7f8fa;
+            color: #1f2937;
+            line-height: 1.7;
+        }
+
+        /* ---------- 深色头图 ---------- */
+        .hero {
+            background: #0b0f17;
+            background-image: radial-gradient(circle at 20% 30%, #1f2a3f 0%, #0b0f17 80%);
+            padding: 2.8rem 1.5rem 3.2rem;
+            text-align: center;
+            color: #ecf0f5;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #a4b3d1;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: inline-block;
+            padding-bottom: 0.6rem;
+            margin-top: 0.2rem;
+        }
+
+        .hero .tagline {
+            margin-top: 1.8rem;
+            font-size: 0.95rem;
+            color: #bcc9e6;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .tagline a {
+            color: #b4caf0;
+            text-decoration: none;
+            border-bottom: 1px dotted #7c96c7;
+            font-weight: 450;
+            transition: color 0.2s;
+        }
+
+        .hero .tagline a:hover {
+            color: #d6e2ff;
+            border-bottom-color: #d6e2ff;
+        }
+
+        /* ---------- 轻量导航 ---------- */
+        .top-nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e3e6ed;
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem 2rem;
+            font-size: 0.95rem;
+            font-weight: 450;
+        }
+
+        .top-nav a {
+            color: #2d3748;
+            text-decoration: none;
+            padding: 0.2rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .top-nav a:hover {
+            border-bottom-color: #3a5a9f;
+            color: #1a2639;
+        }
+
+        /* ---------- 正文浅色区 ---------- */
+        .content {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 2.6rem 1.5rem 3rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 450;
+            border-left: 4px solid #3a5a9f;
+            padding-left: 1rem;
+            margin-bottom: 1.4rem;
+            color: #16202e;
+        }
+
+        .intro-text {
+            background: #ffffff;
+            padding: 1.6rem 1.8rem;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            margin-bottom: 2.4rem;
+        }
+
+        .intro-text p {
+            margin-bottom: 1rem;
+        }
+
+        .intro-text p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .intro-text a {
+            color: #2c5282;
+            text-decoration: none;
+            border-bottom: 1px solid #b7c9e2;
+            font-weight: 450;
+        }
+
+        .intro-text a:hover {
+            border-bottom-color: #2c5282;
+        }
+
+        /* ---------- 三场景卡片 ---------- */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0 2.4rem;
+        }
+
+        .scene-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.6rem 1.4rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            transition: box-shadow 0.25s, transform 0.2s;
+            border: 1px solid #eceff4;
+        }
+
+        .scene-card:hover {
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .scene-card h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #1e2a41;
+            margin-bottom: 0.6rem;
+        }
+
+        .scene-card .emoji-badge {
+            display: inline-block;
+            background: #eef2f9;
+            border-radius: 30px;
+            padding: 0.1rem 0.8rem;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .scene-card p {
+            font-size: 0.94rem;
+            color: #3e4a5c;
+        }
+
+        .scene-card a {
+            color: #2c5282;
+            text-decoration: none;
+            font-weight: 450;
+            border-bottom: 1px solid #d0dcea;
+        }
+
+        .scene-card a:hover {
+            border-bottom-color: #2c5282;
+        }
+
+        /* ---------- 常见说明（FAQ 摘要） ---------- */
+        .faq-section {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.8rem 1.8rem 1.4rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            margin-top: 0.8rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e9ecf2;
+            padding: 1rem 0;
+        }
+
+        .faq-item:last-of-type {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #1f2a41;
+            margin-bottom: 0.25rem;
+            font-size: 1rem;
+        }
+
+        .faq-a {
+            color: #475569;
+            font-size: 0.94rem;
+        }
+
+        .faq-a a {
+            color: #2c5282;
+            text-decoration: none;
+            border-bottom: 1px solid #c7d4eb;
+        }
+
+        .faq-a a:hover {
+            border-bottom-color: #2c5282;
+        }
+
+        /* ---------- 页脚 ---------- */
+        .footer {
+            text-align: center;
+            color: #6a7b93;
+            border-top: 1px solid #dde2ea;
+            padding: 2rem 1.5rem 1.8rem;
+            font-size: 0.85rem;
+            margin-top: 2rem;
+        }
+
+        /* ---------- 响应式 ---------- */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero {
+                padding: 2rem 1rem 2.4rem;
+            }
+            .content {
+                padding: 1.8rem 1rem 2.4rem;
+            }
+            .intro-text {
+                padding: 1.2rem 1.2rem;
+            }
+            .scene-card {
+                padding: 1.2rem 1rem;
+            }
+            .faq-section {
+                padding: 1.2rem 1rem;
+            }
+            .top-nav {
+                gap: 0.8rem 1.5rem;
+                font-size: 0.88rem;
+                padding: 0.6rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <header class="hero">
+        <h1>雷火电竞</h1>
+        <span class="sub">再次落座 · 一如既往</span>
+        <div class="tagline">
+            收藏、备忘，然后找一个安静的晚上，回到你熟悉的地方。<br>
+            <a href="https://official-leihuogaming.com" target="_blank">雷火电竞</a> 始终在收藏夹里等你。
+        </div>
+    </header>
+
+    <!-- 轻量导航（锚点） -->
+    <nav class="top-nav">
+        <a href="#intro">重访</a>
+        <a href="#scenes">场景</a>
+        <a href="#faq">说明</a>
+        <a href="https://official-leihuogaming.com" target="_blank">雷火电竞</a>
+    </nav>
+
+    <!-- 正文浅色区 -->
+    <main class="content">
+
+        <!-- 核心介绍 -->
+        <section id="intro">
+            <h2 class="section-title">再访 · 持续关注</h2>
+            <div class="intro-text">
+                <p>
+                    有时候，我们不是突然想起一个地方，而是在某个页面停留久了，就自然想回去看看。<strong>雷火电竞</strong> 便是这样的存在——不至于时时挂在嘴边，但值得放进书签，偶尔点开，看看最近有什么不同。
+                </p>
+                <p>
+                    不必刻意安排时间，也不必担心错过节奏。当你再次打开 <a href="https://official-leihuogaming.com" target="_blank">雷火电竞</a>，页面呈现的内容仍旧清晰、利落，像一位不多话的老朋友，陪你度过几局安静的时光。
+                </p>
+                <p>
+                    这次，我们不再用“欢迎回来”作为开场，而是更轻地提醒：你可以把它留在收藏夹，也可以每隔一段时间，随手点开。持续关注，但不打扰。
+                </p>
+            </div>
+        </section>
+
+        <!-- 三个场景模块 -->
+        <section id="scenes">
+            <h2 class="section-title">三个熟悉的场景</h2>
+            <div class="scene-grid">
+                <div class="scene-card">
+                    <div class="emoji-badge">📌</div>
+                    <h3>再次打开书签</h3>
+                    <p>
+                        收藏夹里总有几个名字不会删。<a href="https://official-leihuogaming.com" target="_blank">雷火电竞</a> 就在其中，不必解释，点开就好。页面加载完，一切自然。
+                    </p>
+                </div>
+                <div class="scene-card">
+                    <div class="emoji-badge">🔄</div>
+                    <h3>偶尔回来看看</h3>
+                    <p>
+                        不需要每日签到，也不需要紧跟每一条动态。隔几周、隔几个月，用收藏夹里的链接回到 <strong>雷火电竞</strong>，感受不变与变化。
+                    </p>
+                </div>
+                <div class="scene-card">
+                    <div class="emoji-badge">🔖</div>
+                    <h3>顺手标记一下</h3>
+                    <p>
+                        如果你还没把它放进书签，不妨现在就加上。下一次想找个安静的去处，打开 <a href="https://official-leihuogaming.com" target="_blank">雷火电竞</a> 就好。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 常见说明（FAQ 摘要） -->
+        <section id="faq">
+            <h2 class="section-title">一些简短说明</h2>
+            <div class="faq-section">
+                <div class="faq-item">
+                    <div class="faq-q">为什么再次推荐收藏这个链接？</div>
+                    <div class="faq-a">
+                        因为好的去处值得被记住。<a href="https://official-leihuogaming.com" target="_blank">雷火电竞</a> 是一个界面清晰、内容稳定的站点，适合长期关注，而不需要反复搜索。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">多久看一次比较合适？</div>
+                    <div class="faq-a">
+                        没有固定频率。有人每周看一次，有人隔几周才打开。完全随你。重要的是，当你想起它时，它就在那里。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">这个页面和主站是什么关系？</div>
+                    <div class="faq-a">
+                        这里是介绍页，旨在让你了解 <strong>雷火电竞</strong> 的调性并方便收藏。主站入口即 <a href="https://official-leihuogaming.com" target="_blank">雷火电竞</a>，两者一脉相承。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">是否需要注册或登录？</div>
+                    <div class="faq-a">
+                        不需要。直接打开即可浏览。你可以纯粹地看，也可以顺手收藏，没有任何门槛。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>— 收藏 · 备忘 · 持续关注 —</p>
+        <p style="margin-top: 0.3rem; color: #8f9eb3;">雷火电竞 · 页面内容独立呈现</p>
+    </footer>
+
+</body>
+</html>
